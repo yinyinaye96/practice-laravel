@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view("test",['name' => request("name")]);
+Route::get('/posts/{post}', function ($post) {
+    $posts = [
+        'my-first-post' => "my first page",
+        'my-second-post' => "my second page"
+    ];
+    if (!array_key_exists($post, $posts)) {
+        abort(404, "There are not found");
+    }
+    return view('post', [
+        'post' => $posts[$post]
+    ]);
 });
