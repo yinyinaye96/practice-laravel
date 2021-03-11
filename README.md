@@ -12,7 +12,7 @@ php artisan key:generate
 ## migration
 ```
 php artisan migrate
-
+```
 ## Run App
 ```
 php artisan serve
